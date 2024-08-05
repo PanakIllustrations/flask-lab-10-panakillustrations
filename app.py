@@ -44,3 +44,33 @@ Values
     conn.commit()
     conn.close()
     return "Basketball Table Successfully Populated"
+
+@app.route('/db_select')
+def selecting():
+    cconn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a/flask_lab_10_db" )
+    cur = conn.cursor()
+    cur.execute('''
+    SELECT * FROM Basketball;
+    ''')
+records = cur.fetchall();
+conn.close()
+response_string=""
+response_string+="<table>"
+for player in records:
+    response_stri"<tr>"
+    for info in player:
+        response_string+="<td>{}</td>".format(info)
+    response_string+="</tr>"
+response_string+="</table>"
+return response_string
+
+@app.route('/db_drop')
+def dropping():
+    conn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a/flask_lab_10_db" )
+    cur = conn.cursor()
+    cur.execute('''
+        DROP TABLE Basketball;
+        ''')
+    conn.commit()
+    conn.close()
+    return "Basketball Table Successfully Dropped"
