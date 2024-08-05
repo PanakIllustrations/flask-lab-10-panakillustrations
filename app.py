@@ -47,7 +47,7 @@ def inserting():
 
 @app.route('/db_select')
 def selecting():
-    cconn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a/flask_lab_10_db" )
+    conn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a/flask_lab_10_db" )
     cur = conn.cursor()
     cur.execute('''
         SELECT * FROM Basketball;
