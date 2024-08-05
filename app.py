@@ -8,13 +8,13 @@ def hello_world():
 
 @app.route('/db_test')
 def testing():
-    conn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a.oregon-postgres.render.com/flask_lab_10_db")
+    conn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a/flask_lab_10_db")
     conn.close()
     return "Database Connection Successful."
 
 @app.route('/db_create')
 def creating():
-    conn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a.oregon-postgres.render.com/flask_lab_10_db" )
+    conn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a/flask_lab_10_db" )
     cur = conn.cursor()
     cur.execute('''
         CREATE TABLE IF NOT EXISTS Basketball (
@@ -31,7 +31,7 @@ def creating():
 
 @app.route('/db_insert')
 def creating():
-    conn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a.oregon-postgres.render.com/flask_lab_10_db" )
+    conn = psycopg2.connect("postgresql://panakj:RoDM2DMDouqUI5GL3JgWar0JlE2Mu11z@dpg-cqoblgtds78s73bu35s0-a/flask_lab_10_db" )
     cur = conn.cursor()
     cur.execute('''
     INSERT INTO Basketball (First, Last, City, Name, Number)
